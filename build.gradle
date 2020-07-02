@@ -1,0 +1,53 @@
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.1.0.RELEASE")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+jar {
+    baseName = 'auth2-javawithSDK'
+    version =  '0.1.0'
+}
+
+repositories {
+    mavenCentral()
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+    compile group: 'com.itextpdf', name: 'itextpdf', version: '5.1.0'
+	compile("com.intuit.quickbooks-online:ipp-v3-java-data:3.0.0")
+    compile (group: 'com.intuit.quickbooks-online', name: 'ipp-v3-java-devkit', version: '3.0.0', classifier: 'jar-with-dependencies')   
+    compile (group: 'com.intuit.quickbooks-online', name: 'oauth2-platform-api', version: '3.0.0', classifier: 'jar-with-dependencies')   
+    compile("org.springframework.boot:spring-boot-starter-web")
+    compile("org.springframework.boot:spring-boot-starter-thymeleaf")
+    compile("org.springframework.boot:spring-boot-devtools")
+    compile('org.codehaus.jackson:jackson-core-asl:1.9.13')
+    compile('org.codehaus.jackson:jackson-mapper-asl:1.9.13')
+    compile("org.springframework.data:spring-data-rest-webmvc")
+    compile("org.springframework:spring-test:4.1.4.RELEASE")  
+    compile("commons-lang:commons-lang:2.6")
+    compile("org.apache.httpcomponents:httpcore")
+    compile("org.apache.httpcomponents:httpclient")
+    compile group: 'org.json', name: 'json', version: '20180813'
+    compile("log4j:log4j:1.2.17")
+    compile (group: 'ant', name: 'ant', version: '1.7.0')
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+  
+}
+
+wrapper {
+    gradleVersion = '5.2.1'
+}
